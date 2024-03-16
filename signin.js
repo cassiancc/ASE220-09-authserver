@@ -27,15 +27,24 @@ async function checkLogin(user) {
     data = fs.readFileSync("credentials.json", "utf8")
     data = JSON.parse(data);
     //If provided email matches, close "loop".
-    if ((user.email == data.email) && (user.password == data.password)) {
-        console.log("Welcome!")
+    let valid = false
+    data.forEach(function(dataPoint) {
+        if ((user.email == dataPoint.email) && (user.password == dataPoint.password)) {
+            console.log("Welcome!")
+            valid = true
+        }
+    })
+    if (valid) {
         rl.close();
+
     }
-    //If provide email does not match, check again.
     else {
         console.log("Your email or password is incorrect. Please try again.")
         signIn()
+
     }
+
+    
 }
 
 signIn()

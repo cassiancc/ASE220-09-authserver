@@ -7,8 +7,6 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-
-
 function signIn() {
     //Check email
     rl.question('Enter your email address: ', function (email) {

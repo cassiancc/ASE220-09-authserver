@@ -26,7 +26,22 @@ rl.question('Enter your email address: ', (email) => {
       password 
     };
 
-    fs.writeFile('credentials.json', JSON.stringify(user, null, 2), (err) => {
+    //Read existing data
+    data = fs.readFileSync("credentials.json", "utf8")
+
+    //Validate JSON array. If not formatted correctly, reset the file.
+    if (data[0] == "[") {
+      data = JSON.parse(data)
+    }
+    else {
+      data = []
+    }
+    //Push new user to array.
+    data.push(user)
+
+    //Write stringified data to file.
+    data = JSON.stringify(data, null, 2)
+    fs.writeFile('credentials.json', data, (err) => {
       if (err) throw err;
       console.log('User credentials saved to credentials.json');
       rl.close();

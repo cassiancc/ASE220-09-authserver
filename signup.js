@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
+
 rl.question('Enter your email address: ', (email) => {
   if (!validator.isEmail(email)) {
     console.log('Invalid email format.');

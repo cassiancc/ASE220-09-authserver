@@ -57,4 +57,4 @@ const server = http.createServer((req, res)=> {
 server.listen(port, () => console.log(`Server Listening on port ${port}`))
 
 // use below curl command to test login functionality
-//curl -i -X POST -d '"{email":"test@test.com", "password":"test123"}' localhost:5050/api/signin
+//curl -i -X POST -d '{"email":"test@test.com", "password":"test123"}' localhost:5050/api/signin

@@ -10,7 +10,7 @@ const server = http.createServer((req, res)=> {
         res.writeHead(200, {
             'Content-Type':'text/html'
         });
-        res.write(fs.readFileSync('html/index.html'));
+        res.end(fs.readFileSync('html/index.html'));
         console.log("You sent a GET request");
 
     } else if (method === 'POST') {
